@@ -116,7 +116,7 @@ namespace nppreg
             nppkey.SetValue("", tbShow.Text);
             nppkey.SetValue("Icon", path);
             var command = nppkey.CreateSubKey("Command", RegistryKeyPermissionCheck.ReadWriteSubTree);
-            var commValue = "\"D:\\notepad++\\notepad++.exe\" \"%1\"";
+            var commValue = $"{path} \"%1\"";
             command?.SetValue("", commValue);
             MessageBox.Show(@"注册成功");
         }
