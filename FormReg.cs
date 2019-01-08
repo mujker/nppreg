@@ -72,9 +72,9 @@ namespace nppreg
                     //
                     // 提示是否手动选择notepad++路径？
                     //
-                    var rst = MessageBox.Show($@"文件路径不正确：
-{path}，
-是否手动选择notepad++路径？", @"程序默认应放在notepad++.exe同目录", MessageBoxButtons.YesNo);
+                    var rst = MessageBox.Show($@"文件路径不正确：{path}，是否手动选择notepad++路径？",
+                                              @"程序默认应放在notepad++.exe同目录",
+                                              MessageBoxButtons.YesNo);
 
                     if (rst == DialogResult.Yes)
                     {
@@ -84,7 +84,7 @@ namespace nppreg
                         OpenFileDialog dialog = new OpenFileDialog
                         {
                             CheckFileExists = true,
-                            Filter = @"notepad++执行文件|notepad++.exe"
+                            Filter          = @"notepad++执行文件|notepad++.exe"
                         };
                         if (dialog.ShowDialog() == DialogResult.OK)
                         {
@@ -113,9 +113,9 @@ namespace nppreg
                 return;
             }
 
-            nppkey.SetValue("", tbShow.Text);
+            nppkey.SetValue("",     tbShow.Text);
             nppkey.SetValue("Icon", path);
-            var command = nppkey.CreateSubKey("Command", RegistryKeyPermissionCheck.ReadWriteSubTree);
+            var command   = nppkey.CreateSubKey("Command", RegistryKeyPermissionCheck.ReadWriteSubTree);
             var commValue = $"{path} \"%1\"";
             command?.SetValue("", commValue);
             MessageBox.Show(@"注册成功");
@@ -127,9 +127,9 @@ namespace nppreg
         private void InitFormSettings()
         {
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            StartPosition = FormStartPosition.CenterScreen;
-            MaximizeBox = false;
-            MinimizeBox = false;
+            StartPosition   = FormStartPosition.CenterScreen;
+            MaximizeBox     = false;
+            MinimizeBox     = false;
         }
 
         /// <summary>
